@@ -6,15 +6,22 @@ class Node():
         self.right = None
         self.left = None
 
-# def depth_first(root):
-#     if root is None:
-#         return []
-#     # stack = [root]
-#     # current = stack.pop
-#     lefttree = depth_first(root.left) # [c]
-#     rightree = depth_first(root.right) #[b,d,e]
-#     return [root.val, *lefttree,*rightree] #[a,c,b,d,e]
 
+
+
+#recursive 
+def depth_first_rec(root):
+    if root is None:
+        return []
+    # stack = [root]
+    # current = stack.pop
+    lefttree = depth_first_rec(root.left) # [c]
+    rightree = depth_first_rec(root.right) #[b,d,e]
+    return [root.val, *lefttree,*rightree] #[a,c,b,d,e]
+
+
+
+# iterative 
 def depth_first_it(root):
     if root is None:
         return []
@@ -38,8 +45,6 @@ def depth_first_it(root):
 
 
 
-
-
 a = Node('a')
 b = Node('b')
 c = Node('c')
@@ -55,5 +60,6 @@ b.right = e
 
 
 print(depth_first_it(a))
+print(depth_first_rec(a))
 
         
