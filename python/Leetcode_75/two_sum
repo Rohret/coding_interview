@@ -1,0 +1,30 @@
+
+
+def twoSumBruteForce(nums,target):
+    for i in range(len(nums)):
+        for n in range(i+1,len(nums)):
+            if (nums[i] + nums[n]) == target:
+                return [i,n]
+    
+    return []
+
+
+def twoSumsHashTable(nums,target):
+        hashmap = {}
+        for i in range(len(nums)):
+            hashmap[nums[i]] = i
+
+            
+        for i in range(len(nums)):
+            leftToAdd = target - nums[i]
+            if leftToAdd in hashmap and hashmap[leftToAdd] is not i:
+                return [i,hashmap[leftToAdd]]
+        return []
+
+
+
+
+
+print(twoSumBruteForce([3,2,4],6))
+
+print(twoSumsHashTable([3,2,4],6))
